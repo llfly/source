@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	function aaa(){
+		alert(1);
+		//cb.fire();//死循环 走到fire时，先走2还是继续触发fire?
+		//测试发现 会先发生1,2 然后再触发 1,2 内部通过firing处理
+	}
+	function bbb(){
+		alert(2);
+	}
+
+	var cb = $.Callbacks();
+	cb.add(aaa);
+	cb.add(bbb);
+
+	cb.fire();
+</script>

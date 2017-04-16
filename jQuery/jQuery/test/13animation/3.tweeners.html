@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:20px;
+			height:200px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" name="点击" value="点击">
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('input').click(function(){
+
+			//tweeners
+
+
+			//单位不匹配，要将20px转换成百分比
+			//$('#div1').animate({width:'50%'},2000);
+			//$('#div1').animate({width:'+=200'},2000);
+
+
+			//propFilter
+
+
+			//$('#div1').animate({'margin-left':200},2000);//转驼峰  marginLeft
+
+			//$('#div1').animate({margin:[200,'linear']},2000);//分别设置运动方式
+
+			//$('#div1').animate({margin:200},2000);//marginLeft,marginTop,marginRight,marginBottom 分开存储
+
+
+			// $('#div1').animate({'width':200,'height':400},{
+			// 	specialEasing:{
+			// 		'width':'linear',
+			// 		'height':'swing'
+			// 	}
+
+			// },2000);
+
+
+
+			//defaultPrefilter
+			//$('#div1').animate({'width':300},{queue:false}).animate({'height':300},{});//queue:false 没有先后顺序 同时运动
+			$('#div1').animate({'width':400}, 5000);//运动过程中会加overflow:hidden
+		});
+	})
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	#div1{
+		width:250px;
+		height: 250px;
+		background-color: red;
+	}
+	#div2{
+		width:150px;
+		height: 150px;
+		background-color: yellow;
+/*		display: none;*/
+	}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+	<span id="span1">testetetwe</span>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// $('#span1').on('click',function(){
+		// 	alert(1);
+		// });
+		// $('#span1').on('mouseover',function(){
+		// 	alert(2);
+		// });
+
+		// $('#span1').off('mouseover');
+		
+
+		//不写具体事件名，只写命名空间
+		$('#span1').on('click',function(){
+			alert(1);
+		});
+		$('#span1').on('mouseover.aaa',function(){
+			alert(2);
+		});
+
+		$('#span1').off('.aaa');
+	})
+</script>

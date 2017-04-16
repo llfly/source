@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:200px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1" class='test1 test2'></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#div1').addClass('test1 test3');
+		$('#div1').addClass(function (index){
+			return 'test' + index;
+		});
+		$('#div1').removeClass('test1');
+
+		$('#div1').toggleClass('test2');
+	})
+</script>

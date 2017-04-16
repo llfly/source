@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1">123</div>
+	<div>456</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//$('div').remove();
+		//$('div').remove('#div1');
+		$('#div1').click(function(){
+			alert(123);
+		})
+		//remove之后再添加，事件，数据缓存都失效
+		var $div = $('#div1').remove();
+		$('body').append($div);
+
+		//detach之后再添加，事件，数据缓存都存在
+
+		//$('div').detach();
+	})
+</script>

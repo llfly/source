@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1">aaa</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//ajaxStart
+		$(document).on('ajaxStart',function(){
+
+		});
+
+		$('#div1').on('ajaxSend',function(){
+
+		});
+
+		$.ajax({
+			url:,
+			context:$('#div1'),
+			success:function(){
+
+			},
+			error:function(){
+
+			},
+			statusCode:{
+				404:function(){
+					alert('not found');
+				}
+			}
+		})
+	})
+</script>

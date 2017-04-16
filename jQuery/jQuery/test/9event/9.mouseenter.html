@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	#div1{
+		width:250px;
+		height: 250px;
+		background-color: red;
+	}
+	#div2{
+		width:150px;
+		height: 150px;
+		background-color: yellow;
+/*		display: none;*/
+	}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+	<span id="span1"></span>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var oDiv1 = document.getElementById('div1');
+		var oDiv2 = document.getElementById('div2');
+		var oSpan1 = document.getElementById('span1');
+
+
+		//使用over out时，在div内部切换时依旧会计数
+		// oDiv1.onmouseover = function(ev){
+		// 	oSpan1.innerHTML +='1';
+		// 	oDiv2.style.display = 'block';
+		// }
+		// oDiv1.onmouseout = function(ev){
+		// 	oSpan1.innerHTML +='2';
+		// 	oDiv2.style.display = 'none';
+		// }
+
+		//可以使用 onmouseenter ,onmouseleave，不会影响子集
+		//可以通过over,out 来兼容enter leave
+		// oDiv1.onmouseenter = function(ev){
+		// 	oSpan1.innerHTML +='1';
+		// 	oDiv2.style.display = 'block';
+		// }
+		// oDiv1.onmouseleave = function(ev){
+		// 	oSpan1.innerHTML +='2';
+		// 	oDiv2.style.display = 'none';
+		// }
+
+
+		oDiv1.onmouseover = function(ev){
+			var ev = ev || window.ev;
+			var a = this;
+			var b = ev.relatedTarget;
+			if(!elContains(a,b) && a!=b){
+				oSpan1.innerHTML +='1';
+				oDiv2.style.display = 'block';
+			}
+		}
+		oDiv1.onmouseout = function(ev){
+			var ev = ev || window.ev;
+			var a = this;
+			var b = ev.relatedTarget;
+			if(!elContains(a,b) && a!=b){
+				oSpan1.innerHTML +='2';
+				oDiv2.style.display = 'none';
+			}
+		}
+		//a div1 b body !false
+		//a div1 b div1 false
+		//a div1 b div2 false
+	}
+	function elContains(a,b){//
+		return a.contains ? a != b&& a.contains(b) : !!(a.compareDocumentPosition(b)&16);
+	}
+</script>

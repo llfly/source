@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		#div1{
+			width:200px;
+			height: 200px;
+			background-color: red;
+			margin:100px;
+			position: relative;
+		}
+		#div2{
+			width:100px;
+			height: 100px;
+			background-color: yellow;
+			/*position: relative;
+			top:50px;
+			left:50px;*/
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//console.log($('#div2').offset().left);//元素距离屏幕的距离,不考虑祖先节点定位
+		//$('#div2').offset({left:100})
+		//console.log($('#div2').position().left);//相对于父级
+
+		//margin:50;
+		//console.log($('#div2').offset().left);//150
+		//console.log($('#div2').position().left);//0 不会计算margin值
+		
+
+		$('#div2').offset(function(i,opt){
+			console.log(opt);
+			return { left :100,top:100};
+		})
+	})
+</script>

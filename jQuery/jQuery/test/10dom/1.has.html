@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="box">div1<span>span</span></div>
+	<div>div2</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//在自身上筛选
+		//filter() not()
+		//filter 带有.box
+		//$('div').filter('.box').css('border','1px red solid');
+		//not 不带.box
+		//$('div').not('.box').css('border','1px red solid')
+
+		//可以使用回调函数
+		// $('div').filter(function(i,elem){
+		// 	return elem.className === 'box';
+		// }).css('border','1px red solid');
+
+		//可以传入节点
+		var oBox = document.getElementsByClassName('box')[0];
+		$('div').filter(oBox).css('border','1px red solid')
+
+		//在子项上筛选
+		//has 包含 指的是内部是否存在
+		//$('div').has('span').css('border','1px red solid');
+
+
+	})
+</script>

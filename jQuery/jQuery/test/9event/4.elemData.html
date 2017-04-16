@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1">
+		<span></span>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#div1').on('click.aaa',function(){
+			alert(1);
+		});
+		$('#div1').on('click',function(){
+			alert(2);
+		});
+		$('#div1').on('mouseover',function(){
+			alert(3);
+		});
+
+		$('#div1').on('mouseenter',function(){
+			alert(3);
+		});
+
+		$('#div1').on('click','span',function(){
+			alert(4);
+		});
+
+		$('#div1').trigger('click.aaa');
+
+		//var elemData = {
+		//	event:{
+		//		click:[//arr 委托的计数arr.delegateCount=1,arr.length =2
+		//			{
+		//				data:undefined,//没有数据传递
+		//				guid:3,//把委托放在前面,根据绑定顺序分配
+		//				handler:function(){},//绑的事件函数，这里只是一个普通函数，外面的handle是真正的事件函数
+		//				namespace:"",//命名空间，指定命名空间时trigger可以指定命名空间触发
+		//				needsContext:false,//与委托有关,有委托false，没有委托为undefined，当selector里有伪类的时候eg:span:first时为true
+		//				origType:'click',//原始的type类型
+		//				selector:'span',//委托
+		//				type:'click'//现在的类型,当原始事件为mouseenter时，为了兼容，会通过mouseover模拟，这里就会变成mouseover
+		//			},
+		//			{
+		//				data:undefined,//没有数据传递
+		//				guid:1,//把委托放在前面
+		//				handler:function(){},
+		//				namespace:"aaa",
+		//				needsContext:undefined,
+		//				origType:'click',
+		//				selector:undefined
+		//				type:'click'
+		//			},
+		//			{}
+		//		]
+		//		mouseover:[{}]
+		//	},
+		//	handle:function(){},
+		//	
+		//
+		//}
+	})
+</script>

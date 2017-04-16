@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<span>span1</span>
+	<p></p>
+	<span>span2</span>
+	<div><span>span3</span></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		//可以传入回调函数
+
+
+		//包装
+		//$('span').wrap('<div>');
+
+		//整体包装
+		//$('span').wrapAll('<div>');//div不会包装p标签，会改变页面结构
+		//$('span').wrapAll(function(){return '<div>'});//分开包装
+		//内部包装
+		//$('span').wrapInner('<div>');//span所有子节点包装一个div
+
+		//删除指定元素的父级(删除包装)
+		//不会删除body
+		//$('span').unwrap();
+	})
+</script>

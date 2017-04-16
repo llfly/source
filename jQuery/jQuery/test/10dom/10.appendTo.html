@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>div1</div>
+	<span>span1</span>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		//$('div').append($('span')).css('border','1px solid red');
+		//为了针对后续处理 所以有了对应方法
+		$('span').appendTo($('div')).css('border','1px solid red');
+
+		// appendTo: "append",
+		// prependTo: "prepend",
+		// insertBefore: "before",
+		// insertAfter: "after",
+		// replaceAll: "replaceWith"
+	})
+</script>

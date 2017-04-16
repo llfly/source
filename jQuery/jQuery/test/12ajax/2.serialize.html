@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form id="form1">
+		<input type="text" name='a' value='1'>
+		<input type="text" name='b' value='2'>
+		<input type="submit">
+	</form>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//serialize 针对form的创建和获取
+		//[{name:'a',value:'1'},{name:'b',value:'2'}]
+		//serialize先调用serializeArray，再调用param方法
+		console.log($('#form1').serialize());
+
+		console.log($('#form1').serializeArray());
+
+		//form表单有elements属性
+		console.log($('#form1').get(0).elements);
+	})
+</script>

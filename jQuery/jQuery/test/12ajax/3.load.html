@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//load 获取 模板加载
+		// $('#div1').load('3.data.html ol',{'name':'hello'},function(){//默认为get请求，有数据传递时会变成post
+		// 	console.log(arguments);
+		// });//可以在路径后面加选择器，可以传递数据，可以指定callback
+
+
+		// $(window).load(function(){})//方法名相同，但实现方式不同
+		
+		//传统ajax
+		// $.ajax({
+		// 	url:url,
+		// 	success:function(){},
+		// 	error:function(){}
+		// });
+		// //deferred
+		// $.ajax({
+		// 	url:url
+		// }).done(function(){
+
+		// })
+		
+
+
+		//get
+		$(url,data,callback,type)
+
+		//post
+		$('url',{},function(){
+
+		},'dataType')
+	})
+</script>

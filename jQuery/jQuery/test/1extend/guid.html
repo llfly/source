@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="../jquery-2.0.3.js"></script>
+</head>
+<body>
+	<input type="button" value="点击">
+	<input type="button" value="取消绑定">
+</body>
+</html>
+<script type="text/javascript">
+//guid
+
+$(function(){
+	function show(){
+		alert(this);
+	}
+	//通过proxy修改指向
+	//嵌套工具方法后，show不再是事件函数，指向可以改变，但取消事件的时候如何找到目标函数？
+	//内部使用guid做关联
+	//也就是说 调用proxy时会改变guid
+	$('input:eq(0)').click($.proxy(show,window));
+
+	$('input:eq(1)').click(function(){
+		$('input:eq(0)').off();
+	})
+})
+
+
+
+
+//proxy
+function test(a,b){
+	console.log(this,a,b);
+}
+
+//前面不触发函数的时候传参，后面必须要触发函数
+$.proxy(test,document)(3,4);
+$.proxy(test,document,3,4)();
+$.proxy(test,document,3)(4);
+
+var obj = {
+	test:function(){console.log(this);}
+};
+$(document).click(obj.test);//document
+$(document).click($.proxy(obj.test,obj));//obj
+//简写
+$(document).click($.proxy(obj,'test'));
+
+
+
+</script>

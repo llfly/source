@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:200px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// $('#div1').on('click',function(){
+		// 	alert(123);
+		// });
+		
+		//可以通过 data 来传输数据 在event下可以找到
+		// $('#div1').on('click',{name:'hello'},function(ev){
+		// 	alert(ev.data.name);
+		// });
+
+
+		//委托 delegate内部调用on方法，只不过arguments顺序不同
+		// $('ul').delegate('li','click',function(){
+		// 	$(this).css('background','red');
+		// });
+
+		// $('ul').on('click','li',{'name':'llfly'},function(){
+		// 	$(this).css('background','red');
+		// })
+
+
+		//同时绑定多个事件
+		// $('#div1').on({
+		// 	'click':function(){
+		// 		alert(123);
+		// 	},
+		// 	'mouseover':function(){
+		// 		alert(456);
+		// 	}
+		// })
+
+		//one :只执行一次
+		$('#div1').one('click',function(){
+			alert('one');
+		})
+	});
+
+
+</script>

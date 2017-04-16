@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	//$.Deferred();//
+	//$.when();
+
+
+	// var cb =$.Callbacks();
+
+	// setTimeout(function(){
+	// 	alert(1);
+	// 	cb.fire();
+	// },1000);
+
+	// cb.add(function(){
+	// 	alert(2);
+	// })
+	///1,2
+
+	//完成，成功
+	// var dfd = $.Deferred();
+	// setTimeout(function(){
+	// 	alert(1);
+	// 	dfd.resolve();//fire
+	// },1000);
+
+	// dfd.done(function(){//add
+	// 	alert(2);
+	// });
+	//1,2
+
+	//未完成，失败
+	// var dfd = $.Deferred();
+	// setTimeout(function(){
+	// 	alert(1);
+	// 	dfd.reject();//fire
+	// },1000);
+
+	// dfd.fail(function(){//add
+	// 	alert(2);
+	// });
+	//1,2
+
+
+	//进行时
+	var dfd = $.Deferred();
+	setTimeout(function(){
+		alert(1);
+		dfd.notify();//fire
+	},1000);
+
+	dfd.progress(function(){//add
+		alert(2);
+	});
+	//1,2
+
+
+//$.ajax('xxx.php').done(function(){}).fail(function(){});
+</script>

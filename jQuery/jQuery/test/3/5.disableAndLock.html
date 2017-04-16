@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	function aaa(){
+		alert(1);
+	}
+	function bbb(){
+		alert(2);
+	}
+
+	var cb = $.Callbacks('memory');
+	cb.add(aaa);
+
+	cb.fire();
+	//cb.disable();//禁止后续的所有操作 ,add,fire
+	cb.lock();//只会锁住后续的fire操作
+	cb.add(bbb);
+
+	cb.fire();
+</script>

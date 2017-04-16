@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src='../../jquery-2.0.3.js'></script>
+<script type="text/javascript">
+	//思考：状态被很容易的修改
+	// function aaa(){
+	// 	var dfd = $.Deferred();
+	// 	setTimeout(function(){
+	// 		dfd.resolve();
+	// 	},1000)
+	// 	return dfd;
+	// }
+
+	// var newDfd = aaa();
+	// newDfd.done(function(){
+	// 	alert('success');
+	// }).fail(function(){
+	// 	alert('fail');
+	// })
+
+	// newDfd.reject();
+
+	function aaa(){
+		var dfd = $.Deferred();
+		setTimeout(function(){
+			dfd.resolve();
+		},1000)
+		return dfd.promise();//在外面不能修改状态，返回promise，不对外提供状态方法
+	}
+
+	var newDfd = aaa();
+	newDfd.done(function(){
+		alert('success');
+	}).fail(function(){
+		alert('fail');
+	})
+
+</script>

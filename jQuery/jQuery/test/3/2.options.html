@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	function aaa(){
+		alert(1);
+		return false;
+	}
+	function bbb(){
+		alert(2);
+	}
+
+	var cb = $.Callbacks('stopOnFalse');
+	//once: fire只能触发一次
+	//memory:加入后aaa,bbb都会执行
+	//unique:添加两次aaa,只能触发一次，去重
+	//stopOnFalse:返回值为fasle时，后续函数停止执行
+
+	//cb.add(aaa,bbb);
+	//cb.add([aaa,bbb]);
+	//cb.add(aaa);
+	//cb.fire();
+
+	cb.add(bbb);
+
+	cb.fire();
+</script>

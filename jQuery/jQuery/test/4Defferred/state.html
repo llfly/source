@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src='../../jquery-2.0.3.js'></script>
+<script type="text/javascript">
+//state
+	// function aaa(){
+	// 	var dfd = $.Deferred();
+	// 	alert(dfd.state());
+	// 	setTimeout(function(){
+	// 		dfd.resolve();
+	// 		alert(dfd.state());
+	// 	},1000);
+
+	// 	return dfd.promise();
+	// }
+	// aaa().done(function(){
+	// 	alert('success');
+	// })
+//always
+	// function aaa(){
+	// var dfd = $.Deferred();
+	// setTimeout(function(){
+	// 	//dfd.resolve();
+	// 	dfd.reject();
+	// },1000);
+
+	// 	return dfd.promise();
+	// }
+	// aaa().always(function(){
+	// 	alert('always fire');
+	// })
+//then
+	// function aaa(){
+	// var dfd = $.Deferred();
+	// setTimeout(function(){
+	// 	//dfd.resolve();
+	// 	dfd.reject('hello');
+	// },1000);
+
+	// 	return dfd.promise();
+	// }
+
+	// aaa().then(function(){
+	// 	alert('success');
+	// },function(){
+	// 	alert(arguments[0]);
+	// },function(){
+	// 	alert('process');
+	// })
+
+//pipe
+	function aaa(){
+	var dfd = $.Deferred();
+	setTimeout(function(){
+		dfd.resolve('hello');
+	},1000);
+
+		return dfd.promise();
+	}
+
+	var newDfd = aaa().pipe(function(){
+		console.log(arguments[0]);//并没有执行resolve为何会立即执行done，jQuery内部进行了立即调用
+
+	newDfd.done(function(){
+		alert(arguments[0]);
+	})
+</script>

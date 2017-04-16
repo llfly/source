@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1">div</div>
+	<span id="span1">span</span>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// $('#div1').on('click',function(){
+		// 	alert(1);
+		// 	$('#div1').off('click');
+		// });
+
+		// $('#div1').on('click',function(){
+		// 	alert(2);
+		// });
+
+		// $('#div1').trigger('click');
+
+
+		// $('#span1').on('show',function(){
+		// 	alert('span show');
+		// })
+
+		//自定义事件只能通过 trigger 触发
+		//$('#span1').trigger('show');
+	})
+</script>
+<script type="text/javascript">
+	window.onload = function(){
+		var oDiv = document.getElementById('div1');
+
+		var aaa = function(){
+			alert(1);
+		}
+
+		add(oDiv,'test',aaa);
+		trigger(oDiv,'test');
+		//remove(oDiv,'click',aaa);
+		//核心方法
+		function add(obj,types,fn){
+			obj.listeners = obj.listeners || {};
+			obj.listeners[types] = obj.listeners[types] || [];
+			obj.listeners[types].push(fn);
+
+			obj.addEventListener(types,fn,false);
+		}
+		function remove(obj,types,fn){
+			delete obj.listeners[types];
+			obj.removeEventListner(types,fn,false);
+		}
+		function trigger(obj,types){
+			var arr = obj.listeners[types] || [];
+			for(var i=0,len =arr.length;i<len;i++){
+				arr[i]();
+			}
+		}
+	}
+</script>

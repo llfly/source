@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:100px;
+			height: 100px;
+			background-color: red;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+$(function(){
+	alert($('#div1').get(0).offsetWidth);//display=none时为0
+	alert($('#div1').width());//永远为100px;
+	//jQuery内部使用display:block;visibility:hidden;position:absolute来替代display:none，这时用到了swap方法
+})
+</script>

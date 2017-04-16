@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body class="box">
+	<div>div1<span>span1</span></div>
+	<p><span>span2</span></p>
+	<div id="div"><span id="span3">span3</span></div>
+	<div><span>span4</span></div>
+
+	<div id="div1" class='box' >aaa
+		<div id="div2" class = 'box'>bbbb</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//console.log($('#div').index());//不区分标签，只看在兄弟节点间的排名
+		console.log($('#span3').index('span'));
+
+
+		console.log($('span').index($('#span3')));
+
+		//closest 找最近满足条件的节点包括其自身
+		$('#div2').closest('.box',$('body').get(0)).css('border','1px solid red');
+	})
+</script>

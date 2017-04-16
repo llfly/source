@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+	var div = document.createElement('div');
+
+	div.style.backgroundColor = 'red';
+
+	div.cloneNode(true).style.backgroundColor = '';
+
+	alert(div.style.backgroundColor);//ie9,10,11为空
+</script>

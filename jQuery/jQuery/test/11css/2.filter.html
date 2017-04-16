@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			filter:alpha(opacity-50);/*ie9*/
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">testetes</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		alert(window.getComputedStyle($('#div1').get(0),null).filter);//undefined
+		alert(window.getComputedStyle($('#div1').get(0),null).getPropertyValue('filter'));//alpha(opacity-50)
+	})
+</script>

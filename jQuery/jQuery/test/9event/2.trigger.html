@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" id="input1">
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#input1').focus(function(){
+			$(this).css('background','red');
+		});
+
+		//光标自动在input上
+		//$('#input1').trigger('focus');
+
+		//会触发当前事件，不会触发事件的默认行为，内部通过trigger的第四个参数决定
+		$('#input1').triggerHandler('focus');
+	})
+</script>

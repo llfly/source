@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:100px;
+			height: 30px;
+			background-color: red;
+		}
+		#div2{
+			width:100px;
+			height: 30px;
+			background-color: red;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" name="点击" value="点击">
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('input').click(function(){
+			$('#div1').animate({width:500},2000,'linear');
+			$('#div2').animate({width:500},2000,'swing');
+		})
+	})
+</script>

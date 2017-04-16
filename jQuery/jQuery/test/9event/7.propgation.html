@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1">
+		div1
+		<span>test</span>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		$('div').on('click',function(){
+			alert(1);
+		});
+		$('span').on('click',function(ev){
+			alert(2);
+			//ev.stopPropagation();//只针对父级
+			ev.stopImmediatePropagation();//同时禁止相同的元素的相同事件
+		});
+		$('span').on('click',function(){
+			alert(3);
+		});
+	})
+</script>

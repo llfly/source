@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		for(var attr in $.support){
+			$('body').append('<div>'+ attr + ':' + $.support[attr] + '</div>')
+		}
+	})
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul>
+		<li>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</li>
+		<li></li>
+		<li></li>
+	</ul>
+	<ol>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ol>
+	<div id="div1" class="box">div1</div>
+	<div id="div2">div2</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//find是对包含元素进行操作
+		//$('ul').find('li').css('background','red');
+		$('ul').find($('li')).css('background','red');
+
+
+		//is
+		console.log($('div').is('.box'));
+		console.log($('div:first').is('.box'));
+		console.log($('div:last').is('.box'));
+		console.log($('div:first').is('div:last'));//false
+	})
+</script>

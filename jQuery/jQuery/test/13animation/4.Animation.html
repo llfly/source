@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:20px;
+			height:200px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" name="点击" value="点击">
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('input').click(function(){
+
+			$('#div1').animate({'width':400}, {
+				progress:function(){
+					console.log(1);
+				}
+			});
+		});
+	})
+</script>

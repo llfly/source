@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>div<span>span</span></div>
+	
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//add将参数中的元素添加到之前的集合中，形成一个整体集合，后续操作都是针对这个整体集合进行操作
+		//可以用原生，dom，jQuery对象
+		//$('div').add('span').css('border','1px solid red');
+
+
+		//addBack 与 end 相比较
+		//$('div').find('span').css('color','red').end().css('border','1px solid red');
+		//既可以返回到栈的下一层，也包括上一层
+		//相当于add和end的结合
+		$('div').find('span').css('color','red').addBack().css('border','1px solid red');
+	})
+</script>

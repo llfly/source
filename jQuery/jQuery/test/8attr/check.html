@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="checkbox">
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+	//	booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped"
+		//原生自带的问题
+		//alert($('input').attr('checked'));//checked
+		//alert($('input').prop('checked'));//true
+
+		// jQuery解决的问题
+		//$('input').attr('checked',true)
+		$('input').prop('checked','checked');
+	})
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	#div1{
+		background-color:blue;
+	}
+	</style>
+</head>
+<body>
+	<div id="div1" style="color:red">111</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//console.log($('#div1').get(0).style.color);//只能针对行间样式，可以获取也可以设置
+		//console.log(window.getComputedStyle($('#div1').get(0),null).color);//获取元素的最终样式，可以是style块中，也可以是行间，取决于优先级.只能获取，不能设置
+
+		//console.log(window.getComputedStyle($('#div1').get(0),null).background);//不能获取复合样式?
+
+		console.log($('#div1').css('color','red'));//set==>调用jQuery.style()方法实现==>原生style
+		console.log($('#div1').css('color'));//get==>调用的jQuery,css()方法实现==>curCSS()==>getComputedStyle
+	
+		//获取方式
+		$('#div1').css(['color','width']);//return key value
+
+		//设置方式
+		$('#div1').css({width:200,height:200});
+		$('#div1').css('width',function(){
+			return 500;
+		})
+
+		//jQuery可以使用-，原生不可以
+		$('#div1').css('background-color');
+
+	})
+</script>

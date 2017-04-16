@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body style="height: 2000px;">
+	<input type="button" name="点击" value="点击">
+	<div id="div1"></div>
+	<input type="button" value="停止">
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('input').eq(0).click(function(){
+			//$(document.documentElement).animate({scrollTop:1000},2000);
+			$('#div1').animate({width:300},2000).animate({height:600},3000);
+		})
+
+		$('input').eq(1).click(function(){
+			//$(document.documentElement).animate({scrollTop:1000},2000);
+			
+
+			//$('#div1').stop();//默认是停止当前运动，不会影响队列的后续运动
+			//$('#div1').stop(true);//会影响队列的后续运动
+			//$('#div1').stop(true,true);//会停止到结束位置
+
+			//$('#div1').finish();//停止到队列结束
+
+
+		})
+	})
+</script>

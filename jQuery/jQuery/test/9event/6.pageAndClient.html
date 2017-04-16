@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: 2000px;">
+
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	document.onclick = function(ev){
+		//有滚动条之后
+		alert(ev.pageY);//到最上面的距离
+		alert(ev.clientY);//到可视区顶部的距离
+	}
+</script>
+<script type="text/javascript">
+	$(function(){
+		//ie下click右键得不到3  一般使用mousedown
+		$(document).on('click',function(ev){//ev是jQuery的event,用ev.originalEvent来获取原生event
+			alert(ev.which);
+			//移动端开发 changedTouches 原生event才有这个属性
+		})
+	})
+</script>

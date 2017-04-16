@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1">
+		<input type="text">
+	</div>
+</body>
+</html>
+<script type="text/javascript" src='../../jquery-2.0.3.js'></script>
+<script type="text/javascript">
+	var div = document.getElementById('div1');
+	div.onfocus = function(){
+		alert(123);
+	}
+	div.onfocusin = function(){
+		alert(123);
+	}
+</script>

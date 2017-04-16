@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<span>span1<span>span2</span></span>
+	<span></span>
+	<span></span>
+	<div>div</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//$('span').get(0).innerHTML = '<script>alert(1)<\/script>';//填入script,link会填入，但并没有执行
+		//$('span').html('<script>alert(1)<\/script>');
+
+		//$('span').get(0).innerHTML ='<tr><\/tr>';//原生tr不能添加到span内
+		//$('span').html('<tr><\/tr>');
+		
+
+
+		// $('span').html('<input/>');
+		// $('span').html('<div>');
+		
+
+
+		//append,prepend,before,after
+		//添加形式比较多
+		//ODiv,$('div'),'<div></div>'
+		//domManip dom创建的内部方法 返回一个回调 this elem
+
+
+		//$('div').before($('span'));//内部调用insertBefore
+		//<span></span><div></div>
+		//$('div').after($('span'));//原生没有提供insertAfter，内部使用insertBefore(elem,this.nextSibling)
+		//<div></div><span></span>
+		
+		//$('div').append($('span'));//appendChild
+		//<div><span></span></div>
+		
+		//兼容问题 ie低版本
+		//var tr = document.createElement('tr');
+		//低版本ie会自动添加一个tbody
+		//table.appendChild(tr);
+		//jQuery内部通过manipulationTarget修正
+		
+
+		//$('div').prepend($('span'));//原生没有提供方法，内部使用insertBefore(elem,target.firstChild)实现
+		//添加到最前面
+		
+		//出现三个div，jQuery内部会clone两份扔到其他元素中 复选框clone会有问题
+		//$('span').append($('div'));
+
+		//domManip方法的第三个参数allowIntersection
+		//replaceWith 替换操作
+		//span 嵌套都被替换成一个
+		$('span').replaceWith($('div'));
+	})
+</script>

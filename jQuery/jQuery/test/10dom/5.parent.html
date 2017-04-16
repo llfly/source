@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+body
+	<div>div
+	<p>p<span>
+		test
+	</span></p>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+$(function(){
+	//查找父级
+	//$('span').parent('p').css('border','1px solid red');
+	//查找所有的父级
+	//$('span').parents('body').css('border','1px solid blue');
+	//parentsUntil 截止
+	//不包括截止位置 筛选功能
+	$('span').parentsUntil('body','div').css('border','1px solid red');
+	//next 下一个兄弟节点
+	//prev 上一个兄弟节点
+	//nextAll 所有下一个兄弟节点
+	//prevAll 所有上一个兄弟节点
+	//nextUntil 加截止功能
+	//prevUntil 加截止功能
+})
+</script>

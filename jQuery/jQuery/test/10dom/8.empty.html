@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>div
+		<span>span</span>
+		<p>p</p>
+	</div>
+	<input type="checkbox">
+	<div id="div1"><script type="text/javascript">alert(1)</script></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//$('div').empty();
+
+
+		//console.log($('div').html());
+		//text 只会针对文本，即使内部有标签
+		//console.log($('div').text());
+
+		// $('div').click(function(){
+		// 	alert(123);
+		// });
+
+		// $('span').click(function(){
+		// 	alert(456);
+		// })
+		//clone
+		//$('body').append($('div').clone());
+		//$('body').append($('div').clone(true));//包括事件也一并clone
+		//第二个参数针对子元素，第二个参数不存在时以第一个参数为准
+		//$('body').append($('div').clone(true,false));
+
+		//兼容性问题
+		//原生ie9,10不会有选中状态
+		//$('input').prop('checked',true);
+
+		//$('input').clone().appendTo('body');
+
+		//只会弹一次
+		$('#div1').clone().appendTo('body');
+	})
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	//dfd.done();
+	//$.when().done()
+	//when之后可以调用done,fail,方法
+	//说明它返回了一个promise对象
+	//区别在于dfd只能对一个延迟对象进行成功失败操作
+	//when可以对多个延迟对象进行操作（流程控制）
+
+	function aaa(){
+		var dfd = $.Deferred();
+
+		dfd.resolve();
+		return dfd;
+	}
+	// aaa().done(function(){
+	// 	alert('success');
+	// });
+
+	function bbb(){
+		var dfd = $.Deferred();
+
+		//dfd.resolve();
+		dfd.reject();
+		return dfd;//必须要return 延迟对象 如果不返回延迟对象就变成普通函数，when内部跳过
+	}
+	//当when中参数不是延迟对象时，参数自动跳过，但回调函数可以通过arguments来获取参数
+	$.when(aaa(),bbb()).done(function(){
+		alert('success');
+	}).fail(function(){
+		alert('fail');
+	})
+
+	$.when(aaa(),123).done(function(){
+		alert('success');
+	}).fail(function(){
+		alert('fail');
+	})
+
+	$.when(123，123).done(function(){
+		alert('success');
+	}).fail(function(){
+		alert('fail');
+	})
+
+	$.when().done(function(){
+		alert('success');
+	}).fail(function(){
+		alert('fail');
+	})
+</script>

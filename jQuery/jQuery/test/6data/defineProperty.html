@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	var obj = {name :'hello'};
+	Object.freeze(obj);//防止定义对象被修改
+	obj.name = 'test';
+	alert(obj.name);//hello
+
+	var test = {};
+	Object.defineProperty( test, 0, {
+		get: function() {
+			return {};
+		}
+	});
+	console.log(test[0])
+	test[0] = 'aaa';
+	console.log(test[0]);
+</script>

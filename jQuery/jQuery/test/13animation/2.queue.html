@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:200px;
+			height:200px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" name="点击" value="点击">
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		$('input').click(function(){
+
+			//jQuery内部通过queue来依次执行动画
+			//$('#div1').animate({width:300}, 1000).animate({height:300}, 1000).animate({left:200}, 1000);
+
+			//关闭页面中所有的运动
+			jQuery.fx.off = true;
+
+			//配置写法，jQuery源码底层都是基于配置操作
+			$('#div1').animate({width:400},{
+				duration:1000,
+				easing:'linear',
+				complete:function(){
+					alert(1);
+				}//,
+				// step:function(){},
+				// queue:false
+			})
+		})
+	})
+</script>

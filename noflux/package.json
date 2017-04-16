@@ -1,0 +1,16 @@
+{
+  "name": "201701",
+  "version": "1.0.0",
+  "description": "1. eventemitter 2. dataton 3. noflux",
+  "main": "1.eventemitter3.js",
+  "dependencies": {
+    "noflux": "^2.2.4",
+    "dataton": "^1.6.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

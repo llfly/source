@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:100px;
+			height: 100px;
+			background-color: red;
+			padding: 10px;
+			border:1px solid yellow;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//width()/height()/innerWidth()/innerHeight()/outerWidth()/outerHeight()
+		//get
+		console.log($('#div1').width());//100 width
+		console.log($('#div1').innerWidth());//120 width+padding
+		console.log($('#div1').outerWidth());// 122 width+padding +border
+		console.log($('#div1').outerWidth(true));//132 width+padding +border+margin
+
+		//set
+		$('#div1').width(200);//width=200
+		$('#div1').innerWidth(200);//width = 200 - padding
+		$('#div1').outerWidth(200);//width = 200 - padding - border
+		$('#div1').outerWidth(200,true);//width = 200 - padding - border - margin
+
+		//jQuery可以获取隐藏元素的width
+		
+
+		//$('#div1').width() , innerWidth() , outerWidth()
+		//调用关系
+		//get :$.css(elem,name,extra,styles) :第三个参数 ==> cssHooks get ==> getWidthOrHeight(整个结果) ==>augmentWidthOrHeight(计算不同的组合方式，差异性值)
+		//set $.style(elem,name,value,extra) : 第四个参数 ==> cssHooks set  ==> setPositiveNumber()  ==> augmentWidthOrHeight
+		//extra : 四个选项：content,padding,border,margin
+		//根据参数的不同，进行不同的处理 content -> width , padding ->innerWidth , border -> outerWidth , margin -> outerWidth
+	})
+</script>

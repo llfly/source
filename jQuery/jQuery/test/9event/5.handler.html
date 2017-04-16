@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1"><p><span>
+		test
+	</span></p></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+		$(function(){
+		$('#div1').on('click',function(){
+			alert(1);
+		});
+		$('#div1').on('click',function(){
+			alert(2);
+		});
+
+		$('#div1').on('click','span:first',function(){
+			alert(3);
+		});
+
+		$('#div1').on('click','p:first',function(ev){
+			alert(4);
+			//ev.preventDefault();
+			//ev.stopPropagation();
+			return false;//可以通过return false来同时阻止默认事件和冒泡
+		});
+
+		//层级越深，处理越早
+		//3,4,1,2
+
+	})
+</script>

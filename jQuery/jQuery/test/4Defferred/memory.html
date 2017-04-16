@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="button" value="点击">
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+//once
+	// var dfd = $.Deferred();
+	// setInterval(function(){
+	// 	alert(111);
+
+	// 	//dfd.resolve();
+	// 	//dfd.reject();
+	// 	dfd.notify();
+	// },1000);
+
+	// dfd.done(function(){//promise原则：状态不能
+	// 	alert('success');//done和faul只会触发一次
+	// }).fail(function(){
+	// 	alert('fail');
+	// }).progress(function(){
+	// 	alert('loading');//progress可以一直被触发
+	// })
+
+//memory
+	// var cb = $.Callbacks('memory');
+	// cb.add(function(){
+	// 	alert(1);
+	// })
+
+	// $('input').click(function(){
+	// 	cb.add(function(){//点击的时候触发 内部调用fire
+	// 		alert(2);
+	// 	})
+	// })
+	// cb.fire();
+
+
+	var dfd = $.Deferred();
+	setTimeout(function(){
+		alert(111);
+		dfd.resolve();
+	},1000);
+
+	dfd.done(function(){
+		alert('success');
+	});
+
+	$('input').click(function(){
+		dfd.done(function(){//点击的时候触发 内部调用fire
+			alert(222);
+		})
+	});
+	//111,success
+	//点击按钮时
+	//222
+</script>

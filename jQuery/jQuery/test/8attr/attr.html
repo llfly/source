@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1">test</div>
+	<a id="a1" href="llfly.cc"></a>
+	<input type="checkbox" name="test">
+</body>
+</html>
+<script type="text/javascript" src='../../jquery-2.0.3.js'></script>
+<script type="text/javascript">
+	$(function(){
+		//attr
+		//setAttribute
+		$('#div1').attr('name','llfly');
+		console.log($('#div1').attr('name'));
+
+		//prop
+		//. [] 
+		//#div1.title = 'llfly2'
+		//自定义属性 不会加到dom树上
+		$('#div1').prop('test','llfly2');
+		console.log($('#div1').prop('test'));
+
+		console.log($('#a1').attr('href'));
+		console.log($('#a1').prop('href'));
+
+		//removeAttr
+		//removeProp 无法删除 dom自带属性
+</script>

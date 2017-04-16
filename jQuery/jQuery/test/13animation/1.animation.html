@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:200px;
+			height:200px;
+			background-color: red;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" name="点击" value="点击">
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('input').click(function(){
+			//$('#div1').hide(1000).show(1000).toggle(1000);//width,height,opacity
+			//$('#div1').slideUp(1000).slideDown(1000).slideToggle(1000);//height
+			//$('#div1').fadeOut(1000).fadeIn(1000).fadeToggle(1000);//opacity
+
+			//底层运动方法animate
+			//可以任意修改 margin ,padding等其他css属性
+			// $('#div1').animate({width:400},400,'linear',function(){
+			// 	alert(1);
+			// });
+			
+
+			//$('#div1').fadeTo(1000,0.5);//fadeTo可以针对隐藏元素处理
+
+			$('#div1').animate({opacity:0.5},400,'linear',function(){
+				alert(1);
+			});
+		})
+	})
+</script>

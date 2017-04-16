@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:200px;
+			height: 200px;
+			position: absolute;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$('#div1').click(function(){
+		//delay
+		//$(this).animate({width:300},2000).delay(2000).animate({left:300},2000)
+		
+		//promise
+		//当所有运动结束后调用promise
+		$(this).animate({width:300},2000).animate({left:300},2000)
+
+		$(this).promise().done(function(){
+			alert(1);
+		})
+	})
+</script>

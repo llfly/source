@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>div1</div>
+	<span>span</span>
+	<p>p</p>
+	<div>div2</div>
+	<div>div3</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('span').siblings().css('border','1px solid red');
+		$('body').children().css('background','yellow');
+		console.log($('body').children());
+		console.log($('body').contents());//也可以用来跨iframe
+		//$('iframe').contents().body.style.
+	})
+</script>

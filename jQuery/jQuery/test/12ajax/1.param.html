@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form>
+		<input type="text" name='a' value='1'>
+		<input type="submit">
+	</form>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	//console.log($.param({'aaa':'我操','bbb':'2'}));//通过&操作符
+
+	//console.log($.param({'aaa':[1,3],'bbb':'2'}));//
+	//console.log($.param({'aaa':[1,3],'bbb':'2'},true));//第二个参数true
+
+	//console.log($.param([{'name':1,'value':'2'},{'name':3,'value':'4'}]));//表单的传递形式
+
+	//%20 替换成+
+	// console.log(encodeURIComponent(' '));
+	// console.log($.param({a:' '}));
+
+
+	//jQuery对象
+	// var $obj = $([{'name':1,'value':'2'},{'name':3,'value':'4'}]);
+	// console.log($.param($obj));
+
+	console.log(decodeURIComponent($.param({'aaa':{'a1':'111'},'bbb':2})));
+
+	//buildParams
+</script>

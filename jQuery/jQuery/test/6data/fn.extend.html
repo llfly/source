@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1" data-test="llfly">hello</div>
+	<div id="div2">hi</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		alert($('div').html('aaa'));//设置时设置全部，获取时只取第一个
+		alert($('#div1').get(0).dataset.test);//jQuery认为h5的 这类属性也算数据缓存
+		console.log($('div').data());
+	})
+</script>

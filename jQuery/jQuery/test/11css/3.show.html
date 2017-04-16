@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width:100px;
+			height: 100px;
+			background-color: red;
+		}
+		#div2{
+			width:100px;
+			height: 100px;
+			background-color: yellow;
+			display: table-column;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<iframe src="./1.css.html"></iframe>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#div1').hide();//display none  jQuery.css()->getComputedStyle().display ->pre_data
+		$('#div1').show();//display block elem.nodeName -> createElement('div').css('display')
+
+		$('#div1').toggle();//true show   false  hide
+		//jQuery要根据行内还是块级 赋不同值
+	})
+	$(window).load(function(){
+		var div = $('iframe').get(0).contentWindow.document.getElementById('div1');
+		console.log(window.getComputedStyle(div,null).display);//当iframe为none时无法获取div的display
+	})
+</script>

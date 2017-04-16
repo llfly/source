@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1">
+		<input type="text">
+	</div>
+	<input type="checkbox" id="input1">
+	<a href="https://www.baidu.com">aaa</a>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// $('#div1').on('click',function(){
+		// 	alert(1);
+		// });
+
+		// $('input').on('click',function(){
+		// 	alert(2);
+		// });
+
+		// $('input').trigger('click');
+
+
+		//原生的load是不会进行冒泡的，但jQuery中trigger是对函数操作，所以需要特殊处理
+		// $(window).on('load',function(){
+		// })
+		// $('img').on('load',function(){
+		// })
+		// $('img').trigger('load');
+
+		//focus,blur不支持冒泡操作 只弹2
+		// $('#div1').on('focus',function(){
+		// 	alert(1);
+		// });
+		// $('input').on('focus',function(){
+		// 	alert(2);
+		// })
+		// $('input').trigger('focus');
+
+		//focus只能加到input这种能获取光标的元素上，如果是委托，通过支持冒泡的focusin,focusout来模拟
+		// $('#div1').delegate('input','focus',function(){
+		// 	alert(1);
+		// })
+		
+
+		// $('#input1').on('click',function(){
+		// })
+
+		// $('#input1').trigger('click')
+		// $('a').on('click',function(){
+		// 	alert(1);
+		// });
+		// $('a').trigger('click');
+
+
+		// $(window).on('beforeunload',function(){
+		// 	return 123;
+		// })
+		
+
+
+		//focusin focusout
+		$('#div1').on('focusin',function(){//冒泡 input会触发
+			alert(1);
+		})
+		//jQuery内部通过模拟自定义事件来做兼容
+		//也就是说内部调用了$('input').trigger('focusin');
+	})
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#div1').data('name','hello');
+		$('#div1').removeData('name');
+		alert($('#div1').data('name'));
+		$.data(document.body,'age','18');
+		alert($(document.body).data('age'));
+		$.removeData(document.body,'age','18');
+		$.hasData(document.body,'age');
+	});
+
+
+</script>

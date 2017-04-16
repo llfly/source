@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src='../../jquery-2.0.3.js'></script>
+<script type="text/javascript">
+	$(function(){
+		function a(){
+			alert(1);
+		};
+		function b(){
+			alert(2);
+		}
+		//两种push方式，存储的都是function，出队时会自动调用，非函数会报错
+		$.queue(document,'queue1',a);//向queue1数组里push一个a
+		$.queue(document,'queue1',[a,b]);//覆盖掉了上面的方法
+
+		console.log($.queue(document,'queue1'));
+
+		$.dequeue(document,'queue1');//会自动调用
+		$.dequeue(document,'queue1');
+
+		//实例方法
+		//$(document).queue('queue2',[a,b]);
+		$(document).queue('queue2',a,b);
+		//console.log($(document).queue('queue2'));
+	});
+</script>

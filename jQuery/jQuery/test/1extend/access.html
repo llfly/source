@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="../jquery-2.0.3.js"></script>
+	<style type="text/css">
+		#div1{
+			width:100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript">
+	//$().css();
+	//$().attr();//set/get
+	$(function(){
+		console.log($('#div1').css('width'));
+		$('#div1').css('backgroundColor','yellow');
+		$('#div1').css({'backgroundColor':'blue','width':'200px'});
+	});
+
+	
+</script>

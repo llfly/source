@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	// prefilters = {
+	// 	'jsonp' :function(){}
+	// },
+	// transports = {
+	// 	'jsonp':function(){}
+	// }
+
+	//通过addToPrefiltersOrTransports方法添加属性到对象中
+	//针对预处理和分发处理触发回调 inspectPrefiltersOrTransports
+
+	//柯里化
+	function show(n1){
+		return function(n2){
+			return n1 + n2;
+		}
+	}
+
+	var num1 = show(3);
+	var num2 = show(4);
+
+	console.log(num2(5));
+</script>

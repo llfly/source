@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#div1{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#div1').click(function(){
+			// $(this).animate({width:400},2000);// setInterval
+			// $(this).animate({height:600},2000);// setInterval
+			//定时器为异步操作，jQuery中使用队列来完成
+			//将这些function 入队 先后出队
+			//Deferred只是针对一个异步操作
+			//queue针对多个异步操作
+
+			// $(this).animate({width:400},2000)
+			// .queue(function(next){
+			// 	$(this).css('backgroundColor','yellow');
+			// 	alert(1);
+			// 	next();
+			// 	//$(this).dequeue()
+			// })
+			// .animate({height:600},2000);
+
+
+			// $(this).animate({width:300},2000,function(){//利用回调，高和left会同时进行，而入队出队可以控制
+			// 	//$(this).css('height',300);
+			// 	var This = this;
+			// 	var timer = setInterval(function(){
+			// 		This.style.height = This.offsetHeight + 1 + 'px';
+			// 		if(This.offsetHeight === 400){
+			// 			clearInterval(timer);
+			// 		}
+			// 	},30);
+			// }).animate({left:300},2000);
+
+
+			$(this).animate({width:300},2000).queue(function(next){//依次执行
+				//$(this).css('height',300);
+				var This = this;
+				var timer = setInterval(function(){
+					This.style.height = This.offsetHeight + 1 + 'px';
+					console.log(This.offsetHeight);
+					if(This.offsetHeight === 400){
+						clearInterval(timer);
+						next();
+					}
+				},30);
+			}).animate({left:300},2000)
+		})
+	})
+</script>

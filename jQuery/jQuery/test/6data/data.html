@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
+<script type="text/javascript" src="../../jquery-2.0.3.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#div1').attr('name','hello');
+	alert($('#div1').attr('name'));
+	$('#div1').prop('name1','hello');
+	alert($('#div1').prop('name1'));
+	$('#div1').data('name2','hello');
+	alert($('#div1').data('name2'));
+
+	//不太适合设置大量数据(容易内存泄露)，适合去设置元素本身的属性
+	//attr
+	//document.getElementById('div1').setAttribute('name','hello');
+	//document.getElementById('div1').getAttribute('name');
+
+	//prop
+	//document.getElementById('div1').name = 'hello';
+	//document.getElementById('div1').name
+
+	//dom元素与对象之间互相引用时大部分浏览器会出现内存泄露问题
+	
+	var oDiv = document.getElementById('div1');
+	var obj = {};
+	oDiv.name = obj;
+	obj.age = oDiv;
+
+	//可以用data来解决这个问题
+	$('#div1').data('name',obj);
+
+	//data通过cache去把dom和对象联系到一起
+	//<div  xxx="1"></div>
+	//<body xxx='2'></body>
+	//var cache = {
+	//	1:{name : obj},
+	//	2:{age: obj}
+	//}
+	//
+});
+</script>
