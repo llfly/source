@@ -1,0 +1,9 @@
+- tree
+    - [ ] dependencies
+        - [ ] eventermitter
+        - [ ] dataton
+    - [ ] source
+        - [ ] connect
+        - [ ] state
+        - [ ] pure2
+    - [ ] usage
