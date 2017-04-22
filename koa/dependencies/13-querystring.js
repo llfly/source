@@ -1,29 +1,9 @@
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+exports.decode = exports.parse = require('./decode');
 
 'use strict';
 
-// If obj.hasOwnProperty has been overridden, then calling
-// obj.hasOwnProperty(prop) will break.
-// See: https://github.com/joyent/node/issues/1707
 function hasOwnProperty(obj, prop) {
     return Object.prototype.hasOwnProperty.call(obj, prop);
 }
@@ -52,7 +32,7 @@ module.exports = function(qs, sep, eq, options) {
     }
 
     for (var i = 0; i < len; ++i) {
-        var x = qs[i].replace(regexp, '%20'),
+        var x = qs[i].replace(regexp, '%20'),//把+替换成空格
             idx = x.indexOf(eq),
             kstr, vstr, k, v;
 
@@ -64,14 +44,14 @@ module.exports = function(qs, sep, eq, options) {
             vstr = '';
         }
 
-        k = decodeURIComponent(kstr);
+        k = decodeURIComponent(kstr);//%20 => ' '
         v = decodeURIComponent(vstr);
 
-        if (!hasOwnProperty(obj, k)) {
+        if (!hasOwnProperty(obj, k)) {//k不是obj自身（不继承）属性
             obj[k] = v;
-        } else if (Array.isArray(obj[k])) {
+        } else if (Array.isArray(obj[k])) {//k属性已存在，且是数组，push
             obj[k].push(v);
-        } else {
+        } else {//巧妙 k值存在且不为数组（第二次出现），将k之前对应的v值和v存入数组中
             obj[k] = [obj[k], v];
         }
     }
@@ -82,26 +62,10 @@ module.exports = function(qs, sep, eq, options) {
 
 
 
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
+exports.encode = exports.stringify = require('./encode');
+
+
+
 
 'use strict';
 
@@ -114,7 +78,7 @@ var stringifyPrimitive = function(v) {
             return v ? 'true' : 'false';
 
         case 'number':
-            return isFinite(v) ? v : '';
+            return isFinite(v) ? v : '';//isFinite() 函数用于检查其参数是否是无穷大
 
         default:
             return '';

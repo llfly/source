@@ -40,7 +40,7 @@ function compose (middleware) {//[function,function...]
             let fn = middleware[i]
             if (i === middleware.length) fn = next
             if (!fn) return Promise.resolve()
-            try {
+            try {//依次注入context,next方法执行，返回Promise
                 return Promise.resolve(fn(context, function next () {
                     return dispatch(i + 1)
                 }))
